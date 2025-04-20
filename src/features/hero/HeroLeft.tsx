@@ -1,7 +1,10 @@
+import { easeInOut } from 'motion';
+import { motion } from 'motion/react';
 import { FaGithub, FaGlobe, FaLinkedin } from 'react-icons/fa';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import HeroContainer from '@features/hero/HeroContainer.styled';
+import media from '@styles/media';
 
 const HeroTitle = styled.h1`
   margin-top: 50px;
@@ -11,8 +14,42 @@ const HeroTitle = styled.h1`
   span {
     color: white;
   }
-`;
 
+  ${media.extra(
+    'max-width',
+    css`
+      font-size: 72px;
+    `
+  )}
+  ${media.laptop(
+    'max-width',
+    css`
+      font-size: 64px;
+    `
+  )}
+  ${media.tablet(
+    'max-width',
+    css`
+      font-size: 48px;
+    `
+  )}
+`;
+const AnimatedTitle = motion(HeroTitle);
+
+const infoVariants = {
+  initial: {
+    x: -100,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.2,
+    },
+  },
+};
 const HeroInfo = styled.div`
   width: 30%;
 
@@ -25,49 +62,92 @@ const HeroInfo = styled.div`
     margin: 16px 0;
     color: #ddd;
   }
+
+  ${media.extra(
+    'max-width',
+    css`
+      width: 60%;
+    `
+  )}
 `;
+const AnimatedHeroInfo = motion(HeroInfo);
 
 const Links = styled.ul`
   display: flex;
   justify-content: space-between;
 
   margin-top: 16px;
+
+  ${media.tablet(
+    'max-width',
+    css`
+      justify-content: center;
+      gap: 24px;
+    `
+  )}
 `;
+const AnimatedLinks = motion(Links);
 
 const MouseIcon = styled.a`
   margin-bottom: 50px;
   width: max-content;
+
+  ${media.tablet(
+    'max-width',
+    css`
+      display: none;
+    `
+  )}
 `;
+const AnimatedMouseIcon = motion(MouseIcon);
 
 function HeroLeft() {
   return (
     <HeroContainer>
-      <HeroTitle>
+      <AnimatedTitle
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         Hey There,
         <br />
         <span>I'm Hazar</span>
-      </HeroTitle>
+      </AnimatedTitle>
 
-      <HeroInfo>
-        <h2>Software Developer</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <AnimatedHeroInfo variants={infoVariants} initial='initial' animate='animate'>
+        <motion.h2 variants={infoVariants}> Software Developer</motion.h2>
+        <motion.p variants={infoVariants}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </motion.p>
 
-        <Links>
-          <a target='_blank' href='https://linkedin.com/in/hazarnamdar'>
+        <AnimatedLinks variants={infoVariants}>
+          <motion.a
+            variants={infoVariants}
+            target='_blank'
+            href='https://linkedin.com/in/hazarnamdar'
+          >
             <FaLinkedin size={48} />
-          </a>
+          </motion.a>
 
-          <a target='_blank' href='https://github.com/HazarN'>
+          <motion.a variants={infoVariants} target='_blank' href='https://github.com/HazarN'>
             <FaGithub size={48} />
-          </a>
+          </motion.a>
 
-          <a target='_blank' href='https://leetcode.com/HazarN'>
+          <motion.a variants={infoVariants} target='_blank' href='https://leetcode.com/HazarN'>
             <FaGlobe size={48} />
-          </a>
-        </Links>
-      </HeroInfo>
+          </motion.a>
+        </AnimatedLinks>
+      </AnimatedHeroInfo>
 
-      <MouseIcon href='/#services'>
+      <AnimatedMouseIcon
+        animate={{ y: [0, 5], opacity: [0, 1, 0] }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: easeInOut,
+        }}
+        href='/#services'
+      >
         <svg
           width='50px'
           height='50px'
@@ -80,9 +160,20 @@ function HeroLeft() {
             stroke='white'
             strokeWidth='1'
           />
-          <path d='M12 5V8' stroke='white' strokeWidth='1' strokeLinecap='round' />
+          <motion.path
+            d='M12 5V8'
+            stroke='white'
+            strokeWidth='1'
+            strokeLinecap='round'
+            animate={{ y: [0, 5] }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: easeInOut,
+            }}
+          />
         </svg>
-      </MouseIcon>
+      </AnimatedMouseIcon>
     </HeroContainer>
   );
 }

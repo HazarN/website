@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import styled from 'styled-components';
 import BubbleSpeech from './BubbleSpeech';
 import HeroContainer from './HeroContainer.styled';
@@ -5,6 +6,7 @@ import HeroContainer from './HeroContainer.styled';
 const ContactButton = styled.div`
   position: relative;
 `;
+const AnimatedContactButton = motion(ContactButton);
 
 const CircleText = styled.text`
   letter-spacing: 3px;
@@ -30,8 +32,15 @@ function HeroRight() {
     <HeroContainer alignment='right'>
       <BubbleSpeech />
 
-      <a href='/#contact'>
-        <ContactButton>
+      <motion.a
+        href='/#contact'
+        animate={{ x: [200, 0], opacity: [0, 1] }}
+        transition={{ duration: 2 }}
+      >
+        <AnimatedContactButton
+          animate={{ rotate: [0, 360] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+        >
           <svg viewBox='0 0 200 200' width='150' height='150'>
             <circle cx='100' cy='100' r='90' fill='wheat' />
             <path
@@ -62,8 +71,8 @@ function HeroRight() {
               <polyline points='9 6 18 6 18 15' />
             </svg>
           </Arrow>
-        </ContactButton>
-      </a>
+        </AnimatedContactButton>
+      </motion.a>
     </HeroContainer>
   );
 }

@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import media from '@styles/media';
 
 const StyledApp = styled.main`
   max-width: 1536px;
@@ -7,25 +9,36 @@ const StyledApp = styled.main`
   margin-left: auto;
   margin-right: auto;
 
-  @media (min-width: 640px) {
-    max-width: 640px;
-  }
-
-  @media (min-width: 768px) {
-    max-width: 768px;
-  }
-
-  @media (min-width: 1024px) {
-    max-width: 1024px;
-  }
-
-  @media (min-width: 1288px) {
-    max-width: 1288px;
-  }
-
-  @media (min-width: 1536px) {
-    max-width: 1536px;
-  }
+  ${media.mobile(
+    'min-width',
+    css`
+      max-width: 640px;
+    `
+  )}
+  ${media.tablet(
+    'min-width',
+    css`
+      max-width: 768px;
+    `
+  )}
+  ${media.laptop(
+    'min-width',
+    css`
+      max-width: 1024px;
+    `
+  )}
+  ${media.desktop(
+    'min-width',
+    css`
+      max-width: 1288px;
+    `
+  )}
+  ${media.extra(
+    'min-width',
+    css`
+      max-width: 1536px;
+    `
+  )}
 `;
 
 export default StyledApp;
