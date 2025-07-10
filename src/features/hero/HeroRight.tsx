@@ -41,7 +41,7 @@ function HeroRight() {
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
         >
-          <svg viewBox='0 0 200 200' width='150' height='150'>
+          <svg viewBox='0 0 200 200' width='125' height='125'>
             <circle cx='100' cy='100' r='90' fill='wheat' />
             <path
               id='innerCirclePath'

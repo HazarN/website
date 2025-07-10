@@ -1,8 +1,11 @@
-import media from '@styles/media';
 import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
 import styled, { css } from 'styled-components';
 
+import { ONE_SECOND } from '@app/constants';
+import media from '@styles/media';
+
+// Styles
 const Bubble = styled.p`
   width: 100%;
   height: 100px;
@@ -12,7 +15,6 @@ const Bubble = styled.p`
   font-size: 18px;
   border-radius: 20px 20px 0 20px;
 `;
-
 const ProfileImage = styled.img`
   width: 55px;
   height: 50px;
@@ -20,7 +22,6 @@ const ProfileImage = styled.img`
 
   border-radius: 50%;
 `;
-
 const StyledBubbleSpeech = styled.div`
   margin-top: 256px;
 
@@ -46,21 +47,27 @@ const StyledBubbleSpeech = styled.div`
 `;
 const AnimatedStyledBubbleSpeech = motion(StyledBubbleSpeech);
 
+// Main
+
+const bubbleSequence = [
+  'Building Scalable Web Applications',
+  ONE_SECOND,
+  'Developing Robust Backend Solutions',
+  ONE_SECOND,
+  'Creating Seamless User Experiences',
+  ONE_SECOND,
+  'Optimizing Code for Performance',
+  ONE_SECOND,
+  'Experienced for Clean Code features and SOLID',
+  ONE_SECOND,
+];
+
 function BubbleSpeech() {
   return (
     <AnimatedStyledBubbleSpeech animate={{ opacity: [0, 1] }} transition={{ duration: 1 }}>
       <Bubble className='bubble'>
         <TypeAnimation
-          sequence={[
-            'Building Scalable Web Applications',
-            1000,
-            'Developing Robust Backend Solutions',
-            1000,
-            'Creating Seamless User Experiences',
-            1000,
-            'Optimizing Code for Performance',
-            1000,
-          ]}
+          sequence={bubbleSequence}
           wrapper='span'
           speed={40}
           deletionSpeed={60}

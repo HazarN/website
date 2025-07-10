@@ -55,8 +55,6 @@ const ImageWrapper = styled.div`
 function HeroBackground() {
   return (
     <StyledHeroBackground>
-      {/* 3d Shape */}
-
       <ImageWrapper className='heroImg'>
         <img src='/hero.png' alt='background image' />
       </ImageWrapper>

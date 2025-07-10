@@ -58,6 +58,7 @@ const HeroInfo = styled.div`
   }
 
   p {
+    text-align: center;
     font-size: 16px;
     margin: 16px 0;
     color: #ddd;
@@ -116,9 +117,7 @@ function HeroLeft() {
 
       <AnimatedHeroInfo variants={infoVariants} initial='initial' animate='animate'>
         <motion.h2 variants={infoVariants}> Software Developer</motion.h2>
-        <motion.p variants={infoVariants}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </motion.p>
+        <motion.p variants={infoVariants}>I'm a developer who enjoys writing JavaScript</motion.p>
 
         <AnimatedLinks variants={infoVariants}>
           <motion.a
