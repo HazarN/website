@@ -47,7 +47,7 @@ const ImageWrapper = styled.div`
   ${media.tablet(
     'max-width',
     css`
-      height: 50%;
+      height: 45%;
     `
   )}
 `;

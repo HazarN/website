@@ -1,4 +1,4 @@
-import { Interpolation } from 'styled-components';
+import type { Interpolation } from 'styled-components';
 
 type Breakpoints = {
   mobile: string;
@@ -17,7 +17,6 @@ const sizes: Breakpoints = {
   desktop: '1288px',
   extra: '1536px',
 };
-
 type Media = {
   [key in keyof Breakpoints]: (query: Query, styles: Interpolation<any>) => Interpolation<any>;
 };

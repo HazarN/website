@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 const Title = styled.h1`
   margin-top: 50px;
-  font-size: 100px;
+  font-size: 75px;
   color: wheat;
 
   span {
