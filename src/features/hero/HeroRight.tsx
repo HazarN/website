@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
 import styled from 'styled-components';
-import BubbleSpeech from './BubbleSpeech';
-import HeroContainer from './HeroContainer.styled';
+
+import BubbleSpeech from '@features/hero/BubbleSpeech';
+import HeroContainer from '@features/hero/HeroContainer.styled';
 
 const StyledContactButton = styled.div`
   position: relative;

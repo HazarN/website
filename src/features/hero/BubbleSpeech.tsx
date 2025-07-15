@@ -1,6 +1,7 @@
 import { TypeAnimation } from 'react-type-animation';
 
 import { ONE_SECOND } from '@app/constants';
+
 import AnimatedStyledBubbleSpeech, {
   StyledBubble,
   StyledProfileImage,

@@ -6,7 +6,6 @@ import Services from '@features/services/Services';
 import PageSection from '@ui/PageSection';
 
 import StyledApp from '@styles/App.styled';
-
 import GlobalStyles from '@styles/GlobalStyles';
 
 function App() {

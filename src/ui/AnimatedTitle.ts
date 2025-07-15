@@ -1,6 +1,7 @@
-import media from '@styles/media';
 import { motion } from 'motion/react';
 import styled, { css } from 'styled-components';
+
+import media from '@styles/media';
 
 const Title = styled.h1`
   margin-top: 50px;

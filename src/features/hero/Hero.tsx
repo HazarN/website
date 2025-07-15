@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import HeroBackground from '@features/hero/HeroBackground';
 import HeroLeft from '@features/hero/HeroLeft';
 import HeroRight from '@features/hero/HeroRight';
+
 import media from '@styles/media';
 
 const StyledHero = styled.div`

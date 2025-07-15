@@ -1,6 +1,7 @@
-import media from '@styles/media';
 import { motion } from 'motion/react';
 import styled, { css } from 'styled-components';
+
+import media from '@styles/media';
 
 // Styles
 export const StyledBubble = styled.p`

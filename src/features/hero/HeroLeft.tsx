@@ -4,9 +4,11 @@ import { FaGithub, FaGlobe, FaLinkedin } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 
 import HeroContainer from '@features/hero/HeroContainer.styled';
-import media from '@styles/media';
+
 import AnimatedTitle from '@ui/AnimatedTitle';
 import MouseSvg from '@ui/MouseSvg';
+
+import media from '@styles/media';
 
 const infoVariants = {
   initial: {

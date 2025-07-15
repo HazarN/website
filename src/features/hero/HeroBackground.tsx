@@ -1,5 +1,6 @@
-import media from '@styles/media';
 import styled, { css } from 'styled-components';
+
+import media from '@styles/media';
 
 const StyledHeroBackground = styled.div`
   position: absolute;
