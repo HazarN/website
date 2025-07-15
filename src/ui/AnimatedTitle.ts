@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import media from '@styles/media';
 
-const Title = styled.h1`
+export const Title = styled.h1`
   margin-top: 50px;
   font-size: 75px;
   color: wheat;
@@ -18,10 +18,16 @@ const Title = styled.h1`
       font-size: 72px;
     `
   )}
-  ${media.laptop(
+  ${media.desktop(
     'max-width',
     css`
       font-size: 64px;
+    `
+  )}
+  ${media.laptop(
+    'max-width',
+    css`
+      font-size: 50px;
     `
   )}
   ${media.tablet(

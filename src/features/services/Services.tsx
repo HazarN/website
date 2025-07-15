@@ -3,16 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 import IService from '@data/IService';
 import { getServices } from '@data/services';
 
-import ServiceItem from '@features/services/ServiceItem';
-import {
-  StyledServiceList,
-  StyledServicesLeft,
-  StyledServicesRight,
-} from '@features/services/Services.styled';
+import { StyledServicesRight } from '@features/services/Services.styled';
 import ServicesContainer from '@features/services/ServicesContainer.styled';
 
-import AnimatedTitle from '@ui/AnimatedTitle';
 import LoadingIndicator from '@ui/LoadingIndicatior';
+import ServicesLeft from './ServicesLeft';
 
 function Services() {
   const ref = useRef<HTMLDivElement>(null);
@@ -50,15 +45,7 @@ function Services() {
 
   return (
     <ServicesContainer ref={ref}>
-      <StyledServicesLeft>
-        <AnimatedTitle>How do I help?</AnimatedTitle>
-
-        <StyledServiceList>
-          {services?.map((service) => (
-            <ServiceItem service={service} key={service.title} />
-          ))}
-        </StyledServiceList>
-      </StyledServicesLeft>
+      <ServicesLeft services={services} />
 
       <StyledServicesRight></StyledServicesRight>
     </ServicesContainer>
