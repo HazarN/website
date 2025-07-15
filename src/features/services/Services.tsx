@@ -1,35 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 
-import { getServices, IService } from '@app/data/services';
+import IService from '@data/IService';
+import { getServices } from '@data/services';
+import ServiceItem from '@features/services/ServiceItem';
 import AnimatedTitle from '@ui/AnimatedTitle';
 import LoadingIndicator from '@ui/LoadingIndicatior';
-import ServiceItem, { IconWrapper, Service } from './ServiceItem';
+import { StyledServiceList, StyledServicesLeft, StyledServicesRight } from './Services.styled';
 import ServicesContainer from './ServicesContainer.styled';
-
-// Styling
-const ServicesLeft = styled.div``;
-const ServicesRight = styled.div``;
-const ServiceList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  text-decoration: none;
-
-  ${Service}:nth-child(1) ${IconWrapper} {
-    background-color: #dd4c62;
-  }
-  ${Service}:nth-child(2) ${IconWrapper} {
-    background-color: #00dddd;
-  }
-  ${Service}:nth-child(3) ${IconWrapper} {
-    background-color: #af9511;
-  }
-  ${Service}:nth-child(4) ${IconWrapper} {
-    background-color: #6f10bd;
-  }
-`;
 
 function Services() {
   const ref = useRef<HTMLDivElement>(null);
@@ -67,17 +44,17 @@ function Services() {
 
   return (
     <ServicesContainer ref={ref}>
-      <ServicesLeft>
+      <StyledServicesLeft>
         <AnimatedTitle>How do I help?</AnimatedTitle>
 
-        <ServiceList>
+        <StyledServiceList>
           {services?.map((service) => (
             <ServiceItem service={service} key={service.title} />
           ))}
-        </ServiceList>
-      </ServicesLeft>
+        </StyledServiceList>
+      </StyledServicesLeft>
 
-      <ServicesRight></ServicesRight>
+      <StyledServicesRight></StyledServicesRight>
     </ServicesContainer>
   );
 }

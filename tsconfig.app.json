@@ -28,6 +28,7 @@
       "@styles/*": ["./styles/*"],
       "@features/*": ["./features/*"],
       "@ui/*": ["./ui/*"],
+      "@data/*": ["./data/*"],
       "@app/*": ["./*"]
     }
   },

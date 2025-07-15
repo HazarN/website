@@ -1,10 +1,6 @@
-import { Code2, Database, Globe, Server, type LucideIcon } from 'lucide-react';
+import { Code2, Database, Globe, Server } from 'lucide-react';
 
-export interface IService {
-  title: string;
-  icon: LucideIcon;
-  count: number;
-}
+import IService from '@data/IService';
 
 export async function getServices(): Promise<IService[] | null> {
   const services = [

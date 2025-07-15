@@ -12,7 +12,7 @@ const StyledHeroBackground = styled.div`
   z-index: -1;
 `;
 
-const ImageWrapper = styled.div`
+const StyledImageWrapper = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -55,9 +55,9 @@ const ImageWrapper = styled.div`
 function HeroBackground() {
   return (
     <StyledHeroBackground>
-      <ImageWrapper className='heroImg'>
+      <StyledImageWrapper className='heroImg'>
         <img src='/hero.png' alt='background image' />
-      </ImageWrapper>
+      </StyledImageWrapper>
     </StyledHeroBackground>
   );
 }
