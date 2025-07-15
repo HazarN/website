@@ -27,20 +27,31 @@ export const StyledService = styled.section`
   ${media.desktop(
     'max-width',
     css`
-      width: 100%;
+      width: 80%;
     `
   )}
-`;
 
-export const StyledServicesLeft = styled.div`
-  ${media.tablet(
+  ${media.laptop(
     'max-width',
     css`
       width: 100%;
     `
   )}
 `;
-export const StyledServicesRight = styled.div``;
+
+export const StyledServicesLeft = styled.div`
+  ${media.laptop(
+    'max-width',
+    css`
+      width: 100%;
+    `
+  )}
+`;
+export const StyledServicesRight = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const StyledIconWrapper = styled.div`
   display: flex;

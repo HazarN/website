@@ -3,11 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 import IService from '@data/IService';
 import { getServices } from '@data/services';
 
-import { StyledServicesRight } from '@features/services/Services.styled';
 import ServicesContainer from '@features/services/ServicesContainer.styled';
 
 import LoadingIndicator from '@ui/LoadingIndicatior';
 import ServicesLeft from './ServicesLeft';
+import ServicesRight from './ServicesRight';
 
 function Services() {
   const ref = useRef<HTMLDivElement>(null);
@@ -34,10 +34,12 @@ function Services() {
       { threshold: 0.1 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    const current = ref.current;
+
+    if (current) observer.observe(current);
 
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (current) observer.unobserve(current);
     };
   }, [hasFetched]);
 
@@ -47,7 +49,7 @@ function Services() {
     <ServicesContainer ref={ref}>
       <ServicesLeft services={services} />
 
-      <StyledServicesRight></StyledServicesRight>
+      <ServicesRight />
     </ServicesContainer>
   );
 }
