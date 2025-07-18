@@ -57,7 +57,7 @@ function HeroBackground() {
   return (
     <StyledHeroBackground>
       <StyledImageWrapper className='heroImg'>
-        <img src='/hero.png' alt='background image' />
+        <img src='/hero/hero.png' alt='background image' />
       </StyledImageWrapper>
     </StyledHeroBackground>
   );

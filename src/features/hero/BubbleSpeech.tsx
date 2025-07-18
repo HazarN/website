@@ -32,7 +32,7 @@ function BubbleSpeech() {
           repeat={Infinity}
         />
       </StyledBubble>
-      <StyledProfileImage src='/hero-pp.jpeg' alt='profile photo' />
+      <StyledProfileImage src='/hero/hero-pp.jpeg' alt='profile photo' />
     </AnimatedStyledBubbleSpeech>
   );
 }
