@@ -1,19 +1,16 @@
-import IProject from '@data/IProject';
-
-import { StyledPortfolioList } from '@features/portfolio/Portfolio.styled';
-import PortfolioItem from '@features/portfolio/PortfolioItem';
+import { AnimatedStyledPortfolioList } from '@features/portfolio/Portfolio.styled';
+import { MotionValue } from 'motion';
+import { PropsWithChildren } from 'react';
 
 type Props = {
-  portfolio: IProject[];
   numOfProjects: number;
+  xTranslate: MotionValue<number>;
 };
-function PortfolioList({ portfolio, numOfProjects }: Props) {
+function PortfolioList({ children, numOfProjects, xTranslate }: PropsWithChildren<Props>) {
   return (
-    <StyledPortfolioList numOfProjects={numOfProjects}>
-      {portfolio.map((project) => (
-        <PortfolioItem project={project} key={project.id} />
-      ))}
-    </StyledPortfolioList>
+    <AnimatedStyledPortfolioList numOfProjects={numOfProjects} style={{ x: xTranslate }}>
+      {children}
+    </AnimatedStyledPortfolioList>
   );
 }
 

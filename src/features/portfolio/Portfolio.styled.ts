@@ -1,14 +1,16 @@
+import { motion } from 'motion/react';
 import styled, { css } from 'styled-components';
 
 const StyledPortfolio = styled.section<{ numOfProjects: number }>`
   ${({ numOfProjects }) => css`
     height: ${numOfProjects * 100}dvh;
-    position: relative;
   `}
+
+  position: relative;
 `;
 export default StyledPortfolio;
 
-export const StyledPortfolioList = styled.ul<{ numOfProjects: number }>`
+const StyledPortfolioList = styled.ul<{ numOfProjects: number }>`
   position: sticky;
   top: 0;
 
@@ -19,6 +21,7 @@ export const StyledPortfolioList = styled.ul<{ numOfProjects: number }>`
   background: linear-gradient(to bottom right, #203b44, #2c5364);
   background-size: ${({ numOfProjects }) => `${numOfProjects * 100}vw`} 100%;
 `;
+export const AnimatedStyledPortfolioList = motion(StyledPortfolioList);
 
 export const StyledPortfolioItem = styled.li`
   height: 100dvh;
@@ -26,6 +29,7 @@ export const StyledPortfolioItem = styled.li`
   overflow: hidden;
 
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   gap: 100px;
