@@ -1,8 +1,12 @@
+import portfolio from '@data/portfolio';
+import StyledPortfolio from './Portfolio.styled';
+import PortfolioList from './PortfolioList';
+
 function Portfolio() {
   return (
-    <>
-      <div>Portfolio</div>
-    </>
+    <StyledPortfolio numOfProjects={portfolio.length}>
+      <PortfolioList portfolio={portfolio} numOfProjects={portfolio.length} />
+    </StyledPortfolio>
   );
 }
 
