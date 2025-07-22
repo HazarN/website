@@ -8,6 +8,7 @@ import PortfolioItem from '@features/portfolio/PortfolioItem';
 import PortfolioList from '@features/portfolio/PortfolioList';
 
 import PageSection from '@ui/PageSection';
+import ProgressSvg from '@ui/ProgressSvg';
 
 function Portfolio() {
   const ref = useRef<HTMLElement>(null);
@@ -40,9 +41,11 @@ function Portfolio() {
         ))}
       </PortfolioList>
 
-      {portfolio.map(() => (
-        <PageSection />
+      {portfolio.map((_, i) => (
+        <PageSection key={i} />
       ))}
+
+      <ProgressSvg scrollYProgress={scrollYProgress} />
     </StyledPortfolio>
   );
 }

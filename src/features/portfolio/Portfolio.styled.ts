@@ -1,3 +1,4 @@
+import media from '@styles/media';
 import { motion } from 'motion/react';
 import styled, { css } from 'styled-components';
 
@@ -33,9 +34,23 @@ export const StyledPortfolioItem = styled.li`
   align-items: center;
   justify-content: center;
   gap: 100px;
+
+  ${media.extra(
+    'max-width',
+    css`
+      gap: 50px;
+    `
+  )}
+
+  ${media.laptop(
+    'max-width',
+    css`
+      flex-direction: column;
+    `
+  )}
 `;
 
-export const ImageWrapper = styled.div`
+const ImageWrapper = styled.div`
   width: 40%;
   border-radius: 10px;
   overflow: hidden;
@@ -45,13 +60,24 @@ export const ImageWrapper = styled.div`
     width: 100%;
     object-fit: cover;
   }
-`;
 
-export const TextWrapper = styled.div`
+  ${media.laptop(
+    'max-width',
+    css`
+      width: 80%;
+    `
+  )}
+`;
+export const AnimatedImageWrapper = motion(ImageWrapper);
+
+const TextWrapper = styled.div`
   width: 40%;
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  max-height: 100%;
+  overflow: visible;
 
   h1 {
     font-size: 56px;
@@ -60,4 +86,28 @@ export const TextWrapper = styled.div`
   p {
     font-weight: 300;
   }
+
+  ${media.extra(
+    'max-width',
+    css`
+      h1 {
+        font-size: 48px;
+      }
+    `
+  )}
+  ${media.desktop(
+    'max-width',
+    css`
+      h1 {
+        font-size: 36px;
+      }
+    `
+  )}
+  ${media.laptop(
+    'max-width',
+    css`
+      width: 80%;
+    `
+  )}
 `;
+export const AnimatedTextWrapper = motion(TextWrapper);

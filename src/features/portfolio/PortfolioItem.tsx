@@ -1,11 +1,15 @@
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+
+import { ONE_SECOND } from '@app/constants';
 
 import IProject from '@data/IProject';
 
 import {
-  ImageWrapper,
+  AnimatedImageWrapper,
+  AnimatedTextWrapper,
   StyledPortfolioItem,
-  TextWrapper,
 } from '@features/portfolio/Portfolio.styled';
 
 import Button from '@ui/Button';
@@ -13,6 +17,45 @@ import Button from '@ui/Button';
 const ButtonGroup = styled.div`
   display: flex;
 `;
+const AnimatedButtonGroup = motion(ButtonGroup);
+
+const imgVariants = {
+  initial: {
+    x: -500,
+    y: 500,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeInOut',
+    },
+  },
+};
+const textVariants = {
+  initial: {
+    x: 500,
+    y: 500,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeInOut',
+      staggerChildren: 0.2,
+    },
+  },
+};
+const childVariants = {
+  initial: { opacity: 0, y: 50 },
+  animate: { opacity: 1, y: 0 },
+};
 
 type Props = {
   project: IProject;
@@ -20,17 +63,37 @@ type Props = {
 function PortfolioItem({ project }: Props) {
   const { desc, title, link, images } = project;
 
+  const [imageIndex, setImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, ONE_SECOND * 4);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <StyledPortfolioItem>
-      <ImageWrapper>
-        <img src={images.at(0)} alt='' />
-      </ImageWrapper>
+      <AnimatedImageWrapper variants={imgVariants} initial='initial' whileInView='animate'>
+        <AnimatePresence mode='wait'>
+          <motion.img
+            src={images.at(imageIndex)}
+            key={imageIndex}
+            alt={`image-${imageIndex}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          />
+        </AnimatePresence>
+      </AnimatedImageWrapper>
 
-      <TextWrapper>
-        <h1>{title}</h1>
-        <p>{desc}</p>
+      <AnimatedTextWrapper variants={textVariants} initial='initial' whileInView='animate'>
+        <motion.h1 variants={childVariants}>{title}</motion.h1>
+        <motion.p variants={childVariants}>{desc}</motion.p>
 
-        <ButtonGroup>
+        <AnimatedButtonGroup variants={childVariants}>
           <a href={!link ? 'https://github.com/HazarN' : link} target='_blank'>
             <Button>View Project</Button>
           </a>
@@ -42,8 +105,8 @@ function PortfolioItem({ project }: Props) {
               {link.split('.').at(-2) === 'onrender' && ' Render'}
             </Button>
           )}
-        </ButtonGroup>
-      </TextWrapper>
+        </AnimatedButtonGroup>
+      </AnimatedTextWrapper>
     </StyledPortfolioItem>
   );
 }
