@@ -6,8 +6,8 @@ const StyledPageSection = styled.section`
 `;
 
 type Props = {
-  id: string;
-  children: React.ReactNode;
+  id?: string;
+  children?: React.ReactNode;
 };
 function PageSection({ id, children }: Props) {
   return <StyledPageSection id={id}>{children}</StyledPageSection>;

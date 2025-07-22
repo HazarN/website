@@ -22,9 +22,7 @@ function App() {
           <Services />
         </PageSection>
 
-        <PageSection id='portfolio'>
-          <Portfolio />
-        </PageSection>
+        <Portfolio />
 
         <PageSection id='contact'>
           <Contact />
