@@ -18,7 +18,7 @@ const StyledPortfolioList = styled.ul<{ numOfProjects: number }>`
   width: max-content;
   height: 100dvh;
 
-  background: linear-gradient(to bottom right, #203b44, #2c5364);
+  background: linear-gradient(to bottom right, inherit, #2c5364);
   background-size: ${({ numOfProjects }) => `${numOfProjects * 100}vw`} 100%;
 `;
 export const AnimatedStyledPortfolioList = motion(StyledPortfolioList);
@@ -59,18 +59,5 @@ export const TextWrapper = styled.div`
 
   p {
     font-weight: 300;
-  }
-
-  button {
-    background-color: rgb(221, 76, 98);
-    padding: 12px;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-  }
-  button:hover {
-    background-color: rgba(221, 86, 110, 1);
   }
 `;

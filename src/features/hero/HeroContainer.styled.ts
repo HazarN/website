@@ -8,7 +8,7 @@ const HeroContainer = styled.div<Props>`
   flex-direction: column;
   justify-content: space-between;
 
-  ${({ alignment }) =>
+  ${({ alignment = 'left' }) =>
     alignment === 'right'
       ? css`
           align-items: end;
@@ -36,9 +36,5 @@ const HeroContainer = styled.div<Props>`
   width: 50%;
   height: 100%;
 `;
-
-HeroContainer.defaultProps = {
-  alignment: 'left',
-};
 
 export default HeroContainer;

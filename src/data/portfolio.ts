@@ -78,7 +78,7 @@ let portfolio: IProject[] = [
     images: ['mp4-to-mp3-1.png', 'mp4-to-mp3-2.png'],
     title: 'Video to Audio Converter Application',
 
-    desc: ` A simple Python-based tool to convert video files (e.g., .mp4, .mov) into audio (.mp3) using FFmpeg. It automates the process with basic os and subprocess operations. Just drop your video files into the assets folder and run the script from the terminal.`,
+    desc: `A simple Python-based tool to convert video files (e.g., .mp4, .mov) into audio (.mp3) using FFmpeg. It automates the process with basic os and subprocess operations. Just drop your video files into the assets folder and run the script from the terminal.`,
 
     link: null,
   },

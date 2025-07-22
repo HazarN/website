@@ -1,6 +1,7 @@
-import { AnimatedStyledPortfolioList } from '@features/portfolio/Portfolio.styled';
 import { MotionValue } from 'motion';
 import { PropsWithChildren } from 'react';
+
+import { AnimatedStyledPortfolioList } from '@features/portfolio/Portfolio.styled';
 
 type Props = {
   numOfProjects: number;

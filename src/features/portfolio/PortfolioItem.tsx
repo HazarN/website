@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 import IProject from '@data/IProject';
 
 import {
@@ -5,6 +7,12 @@ import {
   StyledPortfolioItem,
   TextWrapper,
 } from '@features/portfolio/Portfolio.styled';
+
+import Button from '@ui/Button';
+
+const ButtonGroup = styled.div`
+  display: flex;
+`;
 
 type Props = {
   project: IProject;
@@ -21,9 +29,20 @@ function PortfolioItem({ project }: Props) {
       <TextWrapper>
         <h1>{title}</h1>
         <p>{desc}</p>
-        <a href={!link ? '' : link}>
-          <button>View Project</button>
-        </a>
+
+        <ButtonGroup>
+          <a href={!link ? 'https://github.com/HazarN' : link} target='_blank'>
+            <Button>View Project</Button>
+          </a>
+
+          {link && (
+            <Button variant='secondary'>
+              Deployed with
+              {link.split('.').at(-2) === 'amplifyapp' && ' AWS Amplify'}
+              {link.split('.').at(-2) === 'onrender' && ' Render'}
+            </Button>
+          )}
+        </ButtonGroup>
       </TextWrapper>
     </StyledPortfolioItem>
   );
