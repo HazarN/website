@@ -1,6 +1,6 @@
-import TechStackIcon from '@data/TechStackIcon';
+import ITechStackIcon from '@data/ITechStackIcon';
 
-const techStacks: TechStackIcon[] = [
+const techStacks: ITechStackIcon[] = [
   // Application frontend
   { name: 'html', fileName: 'html.png' },
   { name: 'css', fileName: 'css.png' },

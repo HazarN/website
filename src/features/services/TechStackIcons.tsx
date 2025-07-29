@@ -1,4 +1,4 @@
-import TechStackIcon from '@data/TechStackIcon';
+import TechStackIcon from '@data/ITechStackIcon';
 
 import { AnimatedGrid, IconImage, Wrapper } from '@features/services/TechStackIcons.styled';
 

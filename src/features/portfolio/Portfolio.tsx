@@ -26,6 +26,7 @@ function Portfolio() {
       }
     };
 
+    // On every window resize
     window.addEventListener('resize', updateWidth);
 
     // On mount
