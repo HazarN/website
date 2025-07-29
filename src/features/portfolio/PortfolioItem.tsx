@@ -21,8 +21,8 @@ const AnimatedButtonGroup = motion(ButtonGroup);
 
 const imgVariants = {
   initial: {
-    x: -500,
-    y: 500,
+    x: -250,
+    y: 250,
     opacity: 0,
   },
   animate: {
@@ -37,8 +37,8 @@ const imgVariants = {
 };
 const textVariants = {
   initial: {
-    x: 500,
-    y: 500,
+    x: 250,
+    y: 250,
     opacity: 0,
   },
   animate: {

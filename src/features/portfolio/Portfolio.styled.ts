@@ -109,5 +109,13 @@ const TextWrapper = styled.div`
       width: 80%;
     `
   )}
+  ${media.tablet(
+    'max-width',
+    css`
+      h1 {
+        font-size: 24px;
+      }
+    `
+  )}
 `;
 export const AnimatedTextWrapper = motion(TextWrapper);

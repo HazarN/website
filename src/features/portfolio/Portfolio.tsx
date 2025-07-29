@@ -14,21 +14,29 @@ function Portfolio() {
   const ref = useRef<HTMLElement>(null);
 
   const [containerDistance, setContainerDistance] = useState(0);
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setContainerDistance(rect.left);
-    }
+    const updateWidth = () => {
+      setWidth(window.innerWidth);
+
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setContainerDistance(rect.left);
+      }
+    };
+
+    window.addEventListener('resize', updateWidth);
+
+    // On mount
+    updateWidth();
+
+    return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
   const totalItems = portfolio.length + 1;
   const { scrollYProgress } = useScroll({ target: ref });
-  const xTranslate = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, -window.innerWidth * portfolio.length]
-  );
+  const xTranslate = useTransform(scrollYProgress, [0, 1], [0, -width * portfolio.length]);
 
   return (
     <StyledPortfolio numOfProjects={totalItems} ref={ref}>
