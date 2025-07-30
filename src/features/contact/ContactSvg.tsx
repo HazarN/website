@@ -1,10 +1,9 @@
 import { motion } from 'motion/react';
-import { StyledContactSvg } from './Contact.styled';
 
 function ContactSvg() {
   return (
     <div>
-      <StyledContactSvg
+      <svg
         xmlns='http://www.w3.org/2000/svg'
         width='100%'
         height='100%'
@@ -485,7 +484,7 @@ function ContactSvg() {
           transform='translate(-266.62966 -85.37299)'
           fill='#2f2e41'
         />
-      </StyledContactSvg>
+      </svg>
     </div>
   );
 }

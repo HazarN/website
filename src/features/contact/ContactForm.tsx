@@ -1,9 +1,9 @@
 import emailjs from '@emailjs/browser';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { AnimatedButton } from '@ui/Button';
 import AnimatedForm, { AnimatedFormItem, Input, Label, Textarea } from '@ui/Form';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 
 const listVariants = {
   initial: {

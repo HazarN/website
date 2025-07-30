@@ -4,10 +4,10 @@ import IService from '@data/IService';
 import { getServices } from '@data/services';
 
 import ServicesContainer from '@features/services/ServicesContainer.styled';
+import ServicesLeft from '@features/services/ServicesLeft';
+import ServicesRight from '@features/services/ServicesRight';
 
 import LoadingIndicator from '@ui/LoadingIndicatior';
-import ServicesLeft from './ServicesLeft';
-import ServicesRight from './ServicesRight';
 
 function Services() {
   const ref = useRef<HTMLDivElement>(null);

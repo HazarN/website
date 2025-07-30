@@ -1,5 +1,6 @@
-import media from '@styles/media';
 import styled, { css } from 'styled-components';
+
+import media from '@styles/media';
 
 const StyledContact = styled.div`
   display: flex;
@@ -35,7 +36,5 @@ const StyledContact = styled.div`
     `
   )}
 `;
-
-export const StyledContactSvg = styled.svg``;
 
 export default StyledContact;

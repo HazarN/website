@@ -1,7 +1,8 @@
-import media from '@styles/media';
 import { MotionValue } from 'motion';
 import { motion } from 'motion/react';
 import styled, { css } from 'styled-components';
+
+import media from '@styles/media';
 
 const StyledProgressSvg = styled.div`
   position: sticky;
