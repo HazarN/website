@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 
 import media from '@styles/media';
 
-// Styles
 export const StyledBubble = styled.p`
   width: 100%;
   height: 100px;
@@ -45,6 +44,6 @@ const StyledBubbleSpeech = styled.div`
     `
   )}
 `;
-
 const AnimatedStyledBubbleSpeech = motion(StyledBubbleSpeech);
+
 export default AnimatedStyledBubbleSpeech;

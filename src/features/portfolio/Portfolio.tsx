@@ -1,7 +1,9 @@
 import { useScroll, useTransform } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import portfolio from '@data/portfolio';
+
+import { useContainerDistance } from '@hooks/useContainerDistance';
 
 import StyledPortfolio from '@features/portfolio/Portfolio.styled';
 import PortfolioItem from '@features/portfolio/PortfolioItem';
@@ -12,31 +14,10 @@ import ProgressSvg from '@ui/ProgressSvg';
 
 function Portfolio() {
   const ref = useRef<HTMLElement>(null);
-
-  const [containerDistance, setContainerDistance] = useState(0);
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const updateWidth = () => {
-      setWidth(window.innerWidth);
-
-      if (ref.current) {
-        const rect = ref.current.getBoundingClientRect();
-        setContainerDistance(rect.left);
-      }
-    };
-
-    // On every window resize
-    window.addEventListener('resize', updateWidth);
-
-    // On mount
-    updateWidth();
-
-    return () => window.removeEventListener('resize', updateWidth);
-  }, []);
+  const [containerDistance, width] = useContainerDistance(ref);
+  const { scrollYProgress } = useScroll({ target: ref });
 
   const totalItems = portfolio.length + 1;
-  const { scrollYProgress } = useScroll({ target: ref });
   const xTranslate = useTransform(scrollYProgress, [0, 1], [0, -width * portfolio.length]);
 
   return (
@@ -50,6 +31,7 @@ function Portfolio() {
         ))}
       </PortfolioList>
 
+      {/* To be able to slide between portfolios */}
       {portfolio.map((_, i) => (
         <PageSection key={i} />
       ))}

@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
         '@ui': pathResolve('src/ui'),
         '@styles': pathResolve('src/styles'),
         '@data': pathResolve('src/data'),
+        '@hooks': pathResolve('src/hooks'),
         '@app': pathResolve('src'),
       },
     },

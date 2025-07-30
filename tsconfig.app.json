@@ -29,6 +29,7 @@
       "@features/*": ["./features/*"],
       "@ui/*": ["./ui/*"],
       "@data/*": ["./data/*"],
+      "@hooks/*": ["./hooks/*"],
       "@app/*": ["./*"]
     }
   },
