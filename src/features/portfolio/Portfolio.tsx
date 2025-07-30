@@ -9,8 +9,8 @@ import StyledPortfolio from '@features/portfolio/Portfolio.styled';
 import PortfolioItem from '@features/portfolio/PortfolioItem';
 import PortfolioList from '@features/portfolio/PortfolioList';
 
-import PageSection from '@ui/PageSection';
 import ProgressSvg from '@ui/ProgressSvg';
+import Section from '@ui/Section';
 
 function Portfolio() {
   const ref = useRef<HTMLElement>(null);
@@ -33,7 +33,7 @@ function Portfolio() {
 
       {/* To be able to slide between portfolios */}
       {portfolio.map((_, i) => (
-        <PageSection key={i} />
+        <Section key={i} />
       ))}
 
       <ProgressSvg scrollYProgress={scrollYProgress} />

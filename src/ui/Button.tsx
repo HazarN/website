@@ -1,7 +1,9 @@
+import { motion } from 'motion/react';
 import styled, { css } from 'styled-components';
 
 type ButtonProps = {
   variant?: 'primary' | 'secondary';
+  size?: 'basic' | 'wide';
 };
 const Button = styled.button<ButtonProps>`
   padding: 12px;
@@ -30,6 +32,13 @@ const Button = styled.button<ButtonProps>`
             background-color: #e6a734;
           }
         `}
+
+  ${({ size = 'basic' }) =>
+    size === 'wide' &&
+    css`
+      width: 100%;
+    `}
 `;
+export const AnimatedButton = motion(Button);
 
 export default Button;

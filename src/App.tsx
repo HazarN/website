@@ -3,7 +3,7 @@ import Hero from '@features/hero/Hero';
 import Portfolio from '@features/portfolio/Portfolio';
 import Services from '@features/services/Services';
 
-import PageSection from '@ui/PageSection';
+import Section from '@ui/Section';
 
 import StyledApp from '@styles/App.styled';
 import GlobalStyles from '@styles/GlobalStyles';
@@ -14,19 +14,19 @@ function App() {
       <GlobalStyles />
 
       <>
-        <PageSection id='hero'>
+        <Section id='hero'>
           <Hero />
-        </PageSection>
+        </Section>
 
-        <PageSection id='services'>
+        <Section id='services'>
           <Services />
-        </PageSection>
+        </Section>
 
         <Portfolio />
 
-        <PageSection id='contact'>
+        <Section id='contact'>
           <Contact />
-        </PageSection>
+        </Section>
       </>
     </StyledApp>
   );
